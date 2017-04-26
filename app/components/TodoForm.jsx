@@ -17,7 +17,7 @@ var TodoForm = React.createClass({
       <div>
         <form ref="form" onSubmit={this.onSubmit}>
           <input type="text" ref="todos"/>
-          <input type="submit" value="Add todo"/>
+          <input type="submit" value="Add todo" className="button"/>
         </form>
       </div>
     );

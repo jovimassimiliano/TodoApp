@@ -22,9 +22,17 @@ describe("TodoList", () => {
       text:"yayaya"
     }
   ];
-  var todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>);
-  var todosComponent = TestUtils.scryRenderedComponentsWithType(todoList, Todo);
+    var todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>);
+    var todosComponent = TestUtils.scryRenderedComponentsWithType(todoList, Todo);
 
-  expect(todosComponent.length).toBe(todos.length);
+    expect(todosComponent.length).toBe(todos.length);
+  });
+
+  it("should render nothing to do when todos is zero", () => {
+    var todos = [];
+    var todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>);
+    var $el = $(ReactDOM.findDOMNode(todoList));
+
+    expect($el.find(".container__message").length).toBe(1);
   });
 });

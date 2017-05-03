@@ -24,7 +24,7 @@ describe("actions", () => {
 
   it("should show toggle completed action", () => {
     var action = {
-      type: "SHOW_TOGGLE_COMPLETED"
+      type: "TOGGLE_SHOW_COMPLETED"
     };
     var result = actions.showToggleCompleted();
 

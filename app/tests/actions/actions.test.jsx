@@ -40,4 +40,22 @@ describe("actions", () => {
     var result = actions.toggleTodo(action.id);
     expect(result).toEqual(action);
   });
+
+  it("should add todos action", () => {
+    var todos = [{
+      id: 112,
+      text: "anything",
+      completed: false,
+      completedAt: undefined,
+      createdAt: 3000
+    }];
+
+    var action = {
+      type: "ADD_TODOS",
+      todos
+    };
+
+    var res = actions.addTodos(todos);
+    expect(res).toEqual(action);
+  })
 });

@@ -6,13 +6,16 @@ var TodoApp = require("TodoApp");
 
 var actions = require("actions");
 var store = require("configureStore").configure();
+var TodoAPI = require("TodoAPI");
 
 store.subscribe(() => {
-  console.log("New State", store.getState());
+  var state = store.getState();
+  console.log("New State", state);
+  TodoAPI.setTodos(state.todos);
 });
-store.dispatch(actions.addTodo("Break the rules"));
-store.dispatch(actions.setSearchText("rules"));
-store.dispatch(actions.showToggleCompleted());
+
+var initialTodos = TodoAPI.getTodos();
+store.dispatch(actions.addTodos(initialTodos));
 
 //load foundation
 $(document).foundation();
